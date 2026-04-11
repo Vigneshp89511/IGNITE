@@ -11,6 +11,8 @@ import ExpenseDetail from './pages/ExpenseDetail';
 import Approvals from './pages/Approvals';
 import Users from './pages/Users';
 import ApprovalRules from './pages/ApprovalRules';
+import  UserDashboard from './pages/userDashboard';
+import  UserLoginPage from './pages/userlogin';
 
 function PrivateRoute({ children, roles }) {
   const { user, loading } = useAuth();
@@ -40,6 +42,8 @@ function AppRoutes() {
       <Route path="/users" element={<PrivateRoute roles={['admin']}><Users /></PrivateRoute>} />
       <Route path="/approval-rules" element={<PrivateRoute roles={['admin']}><ApprovalRules /></PrivateRoute>} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/user" element={<UserDashboard></UserDashboard>} />
+      <Route path="/userlogin" element={<UserLoginPage></UserLoginPage>} />
     </Routes>
   );
 }
